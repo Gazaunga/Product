@@ -1,65 +1,68 @@
-rxvt-unicode
-xclip
-pulseaudio
-pavucontrol
-polybar
-screen
-xorg-xterm
-termite
-terminology
-nerd-fonts-git
-pulseaudio-equalizer
-scrot
-nitrogen
-keepassx2
-dunst
-i3lock
-i3-gaps-git
-network-manager-applet
-networkmanager-openvpn
-imagemagick
-dunst
-compton-git
-thunar
-thunar-archive-plugin
-file-roller
-tumbler
-zathura
-zathura-pdf-mupdf
-zathura-cb
-zathura-ps
-zathura-djvu
-rofi-git
-libmtp
-gvfs-mtp
-openssh
-arandr
-youtube-dl
-ranger
-w3m
-vtop
-bluez
-bluez-utils
-pulseaudio-bluetooth
-blueman
-redshift
-firefox
-lm_sensors
-otf-texgyre
-ttf-symbola
-glances
-neovim 
-python-neovim
-python2-neovim 
-ffmpeg 
-mpv
-rainbowstream
-rmlint
-telegram-cli-git 
-cylon
-rtv
-polkit
-zsh
-connman
-wpa_supplicant
-weechat
+packagelist=(
+  rxvt-unicode
+  xclip
+  pulseaudio
+  pavucontrol
+  polybar
+  screen
+  xorg-xterm
+  termite
+  terminology
+  nerd-fonts-git
+  pulseaudio-equalizer
+  scrot
+  nitrogen
+  keepassx2
+  dunst
+  i3lock
+  i3-gaps-git
+  network-manager-applet
+  networkmanager-openvpn
+  imagemagick
+  dunst
+  compton-git
+  thunar
+  thunar-archive-plugin
+  file-roller
+  tumbler
+  zathura
+  zathura-pdf-mupdf
+  zathura-cb
+  zathura-ps
+  zathura-djvu
+  rofi-git
+  libmtp
+  gvfs-mtp
+  openssh
+  arandr
+  youtube-dl
+  ranger
+  w3m
+  vtop
+  bluez
+  bluez-utils
+  pulseaudio-bluetooth
+  blueman
+  redshift
+  firefox
+  lm_sensors
+  otf-texgyre
+  ttf-symbola
+  glances
+  neovim 
+  python-neovim
+  python2-neovim 
+  ffmpeg 
+  mpv
+  rainbowstream
+  rmlint
+  telegram-cli-git 
+  cylon
+  rtv
+  polkit
+  zsh
+  connman
+  wpa_supplicant
+  weechat
+)
+pacaur -S --noconfirm --noedit ${packagelist[@]}
