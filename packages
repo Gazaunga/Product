@@ -6,7 +6,7 @@ packagelist=(
   pavucontrol
   polybar
   screen
-  xorg-xterm
+  xterm
   termite
   terminology
   nerd-fonts-git
