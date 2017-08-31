@@ -203,6 +203,7 @@ mode "resize" {
 
 # Autostart applications
 exec --no-startup-id nitrogen --restore;
+exec --no-startup-id emacs -fs
 exec --no-startup-id xautolock -time 10 -locker ~/.config/i3/i3lock.sh
 exec --no-startup-id dunst
 exec --no-startup-id polybar statusbar
