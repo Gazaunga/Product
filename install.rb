@@ -53,6 +53,7 @@ ArchPackages = [
   "connman",
   "wpa_supplicant",
   "weechat",
+  "xfce4-power-manager",
 ]
 
 install() {
