@@ -59,6 +59,18 @@ install() {
 `pacaur -Syu --noconfirm --noedit`
 }
 
+git_setup {
+`git config --global user.name "Gazaunga"`
+`git config --global user.email "jeremy.ottley@gmail.com"`
+`git config --global core.autocrlf input`
+`git config --global core.safecrlf true`
+puts "git config set up!"
+}
+
 ArchPackages.each do |i|
 install i
 end
+
+git_setup
+
+
