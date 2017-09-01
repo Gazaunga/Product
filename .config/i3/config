@@ -29,6 +29,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec $term
+bindsym $win+Return exec urxvt -e screen
 
 # kill focused window
 bindsym $mod+Shift+q kill
