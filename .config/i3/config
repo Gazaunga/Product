@@ -345,5 +345,9 @@ mode "$mode_gaps_outer" {
 
 bar {
         status_command i3status
+        #i3bar_command ~/.config/polybar/launch.sh
+        #i3bar_command     i3bar
         position          top
+        workspace_buttons yes
+        font pango: mplus, hermit, fontawesome 10
 }
