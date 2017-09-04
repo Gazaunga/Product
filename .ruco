@@ -1,0 +1,27 @@
+Ruco.configure do
+  # set options
+  options.window_line_scroll_offset = 5 # default 1
+  options.history_entries = 10          # default 100
+  options.editor_remove_trailing_whitespace_on_save = true  # default false
+  options.editor_blank_line_before_eof_on_save = true       # default false
+  options.editor_line_numbers = true                        # default false
+
+  # Use any Textmate theme e.g. from http://wiki.macromates.com/Themes/UserSubmittedThemes
+  # use a url that points directly to the theme, e.g. github 'raw' urls
+  #options.color_theme = "https://raw.githubusercontent.com/yannchao/code-editor-theme/master/textmate/Quiet%20Night.tmTheme"
+  #options.color_theme = "https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/textmate/Tomorrow-Night-Blue.tmTheme"
+  options.color_theme = "https://raw.githubusercontent.com/squidfunk/shipwreck-textmate/master/Shipwreck.tmTheme"
+  ...
+
+  # bind an existing action
+  puts @actions.keys
+
+  bind :"Ctrl+q", :quit
+  bind :"Ctrl+s", :save
+  bind :"Ctrl+k", :delete_line
+  bind :"Ctrl+a", :move_to_bol
+
+  # create reusable actions
+  action(:first_line){ editor.move(:to_column, 0) }
+  bind :"Ctrl+g", :first_line
+end
