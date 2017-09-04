@@ -22,6 +22,7 @@ packagelist=(
   imagemagick
   dunst
   compton-git
+  kitty-git
   thunar
   thunar-archive-plugin
   file-roller
