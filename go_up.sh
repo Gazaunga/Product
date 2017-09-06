@@ -1,15 +1,8 @@
 #!/bin/bash
 
 mk_go() {
-cd ~
-touch .profile
-touch .go
-cd .go
-touch bin
-cd ~
-echo "GOPATH=$HOME/.go" >> .profile # gopath
-echo "GOROOT=$GOPATH/bin" >> .profile # goroot
-echo "source .profile" >> .bashrc
+bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+gvm install go1.9
 }
 
 mk_go
