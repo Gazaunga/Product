@@ -1,2 +1,5 @@
 ---
+:update_sources: true
+:sources: 
+- http://rubygems.org/
 gem: --no-rdoc --no-ri --user-install
