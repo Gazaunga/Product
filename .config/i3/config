@@ -210,7 +210,7 @@ mode "resize" {
 bindsym $mod+d exec --no-startup-id
 
 # Autostart applications
-exec_always --no-startup-id feh --randomize --bg-fill ~/.wallpaper/*
+exec_always --no-startup-id feh --randomize --bg-fill ~/.wallpapers/*
 exec_always --no-startup-id compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
 #exec --no-startup-id emacs -fs
 exec --no-startup-id xautolock -time 10 -locker ~/.config/i3/i3lock.sh
