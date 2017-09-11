@@ -1,0 +1,16 @@
+URxvt.font:xft:ubuntu mono:style=regular:pixelsize=14
+URxvt.boldFont:xft:ubuntu mono:style=regular:pixelsize=14
+URxvt.italicFont:xft:ubuntu mono:style=regular:pixelsize=14
+URxvt.boldItalicFont:xft:ubuntu mono:style=regular:pixelsize=14
+
+Xft.dpi:                        96
+Xft.antialias:                  1
+Xft.autohint:                   1
+Xft.hinting:                    1
+Xft.hintstyle:                  hintslight
+Xft.lcdfilter:                  lcdlight
+Xft.rgba:                       rgb
+
+
+
+! vim:ft=xdefaults
