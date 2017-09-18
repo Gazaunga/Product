@@ -29,7 +29,12 @@ cd()
 }
 
 # Create a new directory and enter it
-mkd() { mkdir $1 && cd $1; }
+#mkd() { mkdir $1 && cd $1; }
+
+mcd () {
+    mkdir -p $1
+    cd $1
+}
 
 gacp () {
   git add --all --verbose
@@ -48,5 +53,83 @@ function new_project() {
 	  hub create -d "$2" && \
 	  yarn init && \
 	  gacp initial
+}
+
+function y2m() {
+youtube-dl -t --extract-audio --audio-format mp3 "$@"
+}
+
+# This allows the use of "Transfer hello.txt" to create a unique sharing link
+# files up to 10gb
+transfer() { if [ $# -eq 0 ]; then echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi 
+tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; }
+
+scripter()
+{
+    if [ -n "$1" ]; then
+        local script="$1"
+    else
+        local script=`mktemp scriptster.rb.XXXX`
+    fi
+
+    local url="https://raw.githubusercontent.com/pazdera/scriptster/master"
+    curl "$url/examples/minimal-template.rb" >"$script"
+    #curl "$url/examples/documented-template.rb" >"$script"
+
+    chmod +x "$script"
+    $EDITOR "$script"
+}
+
+gitgraph() {
+git log --graph --abbrev-commit --decorate --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset) %C(dim white)- %an%C(reset)" --all
+
+: '
+* ca425d6 - Thu, 25 Feb 2016 21:40:28 -0800 (5 months ago) (HEAD -> develop, origin/develop, origin/HEAD)
+|  Bump version, update contributors list - Jeremy Felt
+*   8dfffb4 - Thu, 25 Feb 2016 21:31:48 -0800 (5 months ago)
+|\   Merge pull request #813 from tucsonlabs/chore/update-optimize-power-parallels-provider-flag - Jeremy Felt
+| * fb9f5e3 - Tue, 19 Jan 2016 04:37:17 -0800 (6 months ago)
+| |  update deprecated parallels.optimize_power_consumption = false - Erik Trom
+* | d170f3f - Sun, 21 Feb 2016 11:46:00 -0800 (5 months ago)
+| |  Adjust heading for Bug fixes and enhancements - Jeremy Felt
+| | * 9226f5b - Sun, 21 Feb 2016 11:46:00 -0800 (5 months ago) (tag: 1.3.0, origin/master)
+| | |  Adjust heading for Bug fixes and enhancements - Jeremy Felt
+| | *   2e9eec5 - Sun, 21 Feb 2016 11:42:54 -0800 (5 months ago)
+| | |\   Merge branch ''develop'' - Jeremy Felt
+| |_|/  
+|/| |   
+* | |   ba6058b - Sun, 21 Feb 2016 10:52:28 -0800 (5 months ago)
+|\ \ \   Merge pull request #832 from Varying-Vagrant-Vagrants/update-docs - Jeremy Felt
+| * | | 99d2772 - Sun, 21 Feb 2016 10:36:17 -0800 (5 months ago)
+| | | |  Update release date for 1.3.0 - Jeremy Felt
+'
+}
+
+# Encrypt a file
+  function encrypt() { openssl enc -aes-256-cbc -salt -a -in $1 -out $2 ; }
+
+  # Decrypt a file
+  function decrypt() { openssl enc -aes-256-cbc -d -a -in $1 -out $2 ; }
+
+  # Fetch weather forecast
+  function weather() { curl "http://wttr.in/$1"; }
+
+  # Convert input text into a QR code
+  function qrify() { curl "http://qrenco.de/$1"; }
+  
+   Fetch cheatsheet
+  function cheat() { curl "http://cheat.sh/$1"; }
+  
+  # Show actual destinatoin of a tinyurl. Eg: untiny "tinyurl.com/savepii"
+  function untiny() { curl -s "http://x.datasig.io/short?url=http://$1" | awk -F '"' '/d
+  
+def clean() {
+rm -rf "$HOME/.cache/"
+rm -rf "$HOME/.thumbnails"
+rm -rf "$HOME/.local/share/Trash"
+}
+# Remove duplicate lines
+def dupe() {
+vi +'%!sort | uniq' +wq file.txt
 }
 
